@@ -116,19 +116,6 @@ func (dev Device) WaitForAvailability(timeout int) error {
 	return err
 }
 
-// Root method gains root access to the device, for this the device must be rooted.
-// It returns error in case of root failed or adb operation failed.
-func (dev Device) Root() error {
-	out, err := dev.Adb("root")
-	if err != nil {
-		return err
-	}
-	if !strings.Contains(out, "restarting adbd as root") && !strings.Contains(out, "adbd is already running as root") {
-		return errors.New("Unable to gain root access to device")
-	}
-	return dev.WaitForAvailability(dev.Timeout)
-}
-
 // Reboot method reboots associated device. It waits for the device to become
 // available again within specified restart timeout and the device to complete
 // its boot sequence within specified boot timeout. It returns error in case
