@@ -1,7 +1,7 @@
 package input
 
 import (
-	"github.com/kunaldawn/goandroid/device"
+	"github.com/deniscuculic/goandroid/device"
 	"strings"
 )
 

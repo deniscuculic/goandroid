@@ -2,7 +2,7 @@
 
 goandroid
 =========
-[![Project Status](http://stillmaintained.com/kunaldawn/goandroid.png)](https://stillmaintained.com/kunaldawn/goandroid) [![Build Status](http://img.shields.io/travis/kunaldawn/goandroid.svg?style=flat-square)](https://travis-ci.org/kunaldawn/goandroid) [![Coverage Status](http://img.shields.io/coveralls/kunaldawn/goandroid.svg?style=flat-square)](https://coveralls.io/r/kunaldawn/goandroid) [![Issues](http://img.shields.io/github/issues/kunaldawn/goandroid.svg?style=flat-square)](https://github.com/kunaldawn/goandroid/issues) [![Documentation](http://img.shields.io/badge/go-Documentation-blue.svg?style=flat-square)](https://godoc.org/github.com/kunaldawn/goandroid) [![License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/kunaldawn/goandroid/blob/master/LICENSE)
+[![Project Status](http://stillmaintained.com/kunaldawn/goandroid.png)](https://stillmaintained.com/kunaldawn/goandroid) [![Build Status](http://img.shields.io/travis/kunaldawn/goandroid.svg?style=flat-square)](https://travis-ci.org/kunaldawn/goandroid) [![Coverage Status](http://img.shields.io/coveralls/kunaldawn/goandroid.svg?style=flat-square)](https://coveralls.io/r/kunaldawn/goandroid) [![Issues](http://img.shields.io/github/issues/kunaldawn/goandroid.svg?style=flat-square)](https://github.com/deniscuculic/goandroid/issues) [![Documentation](http://img.shields.io/badge/go-Documentation-blue.svg?style=flat-square)](https://godoc.org/github.com/deniscuculic/goandroid) [![License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/deniscuculic/goandroid/blob/master/LICENSE)
 
 Introduction
 ------------
@@ -61,7 +61,7 @@ export PATH=$PATH:$PWD/platform-tools
 ```
 
 ### Initialize Android device instance
-First import "github.com/kunaldawn/goandroid" in your source, and you are ready to write some cool automation code. To interact with an android device, you need to create an android device instance first. Following example shows how to create a new android device instance and enable "Show CPU Usage" settings using automation. Please locate the documentation for package [goandroid](https://godoc.org/github.com/kunaldawn/goandroid) for more information.
+First import "github.com/deniscuculic/goandroid" in your source, and you are ready to write some cool automation code. To interact with an android device, you need to create an android device instance first. Following example shows how to create a new android device instance and enable "Show CPU Usage" settings using automation. Please locate the documentation for package [goandroid](https://godoc.org/github.com/deniscuculic/goandroid) for more information.
 
 **Example:**
 
@@ -71,7 +71,7 @@ First import "github.com/kunaldawn/goandroid" in your source, and you are ready 
 package main
 
 import (
-	"github.com/kunaldawn/goandroid"
+	"github.com/deniscuculic/goandroid"
 )
 
 func main() {

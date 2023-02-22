@@ -6,7 +6,7 @@
 package view
 
 import (
-	"github.com/kunaldawn/goandroid/geometry"
+	"github.com/deniscuculic/goandroid/geometry"
 	"strings"
 )
 

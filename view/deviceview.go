@@ -6,9 +6,9 @@ import (
 	"encoding/xml"
 	"errors"
 	"fmt"
-	"github.com/kunaldawn/goandroid/device"
-	"github.com/kunaldawn/goandroid/display"
-	"github.com/kunaldawn/goandroid/input"
+	"github.com/deniscuculic/goandroid/device"
+	"github.com/deniscuculic/goandroid/display"
+	"github.com/deniscuculic/goandroid/input"
 	"strings"
 )
 

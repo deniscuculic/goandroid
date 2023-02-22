@@ -3,7 +3,7 @@ package activity
 import (
 	"errors"
 	"fmt"
-	"github.com/kunaldawn/goandroid/device"
+	"github.com/deniscuculic/goandroid/device"
 	"strings"
 	"time"
 )
