@@ -3,9 +3,10 @@ package device
 import (
 	"errors"
 	"fmt"
-	"github.com/deniscuculic/goandroid/adbutility"
 	"strings"
 	"time"
+
+	"github.com/deniscuculic/goandroid/adbutility"
 )
 
 const (
@@ -76,7 +77,7 @@ func (dev Device) GetProperty(key string) (string, error) {
 // properties. It also returns error in case of adb operation failure.
 func (dev Device) GetAllProperties() (map[string]string, error) {
 	prop_map := make(map[string]string)
-	prop, err := dev.Shell("getprop")
+	prop, err := dev.Shell("su -c getprop")
 	if err != nil {
 		return prop_map, err
 	}

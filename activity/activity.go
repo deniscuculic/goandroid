@@ -3,9 +3,10 @@ package activity
 import (
 	"errors"
 	"fmt"
-	"github.com/deniscuculic/goandroid/device"
 	"strings"
 	"time"
+
+	"github.com/deniscuculic/goandroid/device"
 )
 
 // Activity struct represents activity subsystem for associated android device.
@@ -35,12 +36,12 @@ func (am Activity) StartActivity(canonicalClass string, options ...string) error
 		cmd = append(cmd, "start")
 		cmd = append(cmd, options...)
 		cmd = append(cmd, canonicalClass)
-		_, err := am.dev.Shell("am", cmd...)
+		_, err := am.dev.Shell("su -c am", cmd...)
 		if err != nil {
 			return err
 		}
 	} else {
-		_, err := am.dev.Shell("am", "start", canonicalClass)
+		_, err := am.dev.Shell("su -c am", "start", canonicalClass)
 		if err != nil {
 			return err
 		}
@@ -54,7 +55,7 @@ func (am Activity) StartActivity(canonicalClass string, options ...string) error
 // It returens error if something went wrong on adb side or the method is unable to
 // determine the activity canonical package name.
 func (am Activity) GetFocusedActivity() (string, error) {
-	ret, err := am.dev.Shell("dumpsys", "activity", "|", "grep", "mFocusedActivity:")
+	ret, err := am.dev.Shell("su -c dumpsys", "activity", "|", "grep", "mFocusedActivity:")
 	if err != nil {
 		return "", err
 	}

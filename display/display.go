@@ -17,7 +17,7 @@ func NewDisplay(dev device.Device) Display {
 }
 
 func (disp Display) GetDisplaySize() (int, int, error) {
-	txt, err := disp.dev.Shell("wm", "size")
+	txt, err := disp.dev.Shell("su -c wm", "size")
 	if err != nil {
 		return -1, -1, err
 	}
@@ -38,6 +38,6 @@ func (disp Display) GetDisplaySize() (int, int, error) {
 
 func (disp Display) SetDisplaySize(width int, height int) error {
 	size := fmt.Sprintf("%dx%d", width, height)
-	_, err := disp.dev.Shell("wm", "size", size)
+	_, err := disp.dev.Shell("su -c wm", "size", size)
 	return err
 }

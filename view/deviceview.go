@@ -32,7 +32,7 @@ func (devView DeviceView) GetViewes() (Views, error) {
 }
 
 func (devView DeviceView) GetHierarchy() (Hierarchy, error) {
-	out, err := devView.dev.Shell("uiautomator dump")
+	out, err := devView.dev.Shell("su -c uiautomator dump")
 	if err != nil {
 		return Hierarchy{}, err
 	}
@@ -48,7 +48,7 @@ func (devView DeviceView) GetHierarchy() (Hierarchy, error) {
 	xml_location := parts[1]
 	xml_location = strings.TrimSpace(xml_location)
 
-	xml_data, err := devView.dev.Shell("cat", xml_location)
+	xml_data, err := devView.dev.Shell("su -c cat", xml_location)
 	if err != nil {
 		return Hierarchy{}, err
 	}

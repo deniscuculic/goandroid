@@ -24,7 +24,7 @@ func NewTouchScreen(dev device.Device) TouchScreen {
 // Tap method performs a touch operation on specified (x,y) coordinate. It
 // returns error on adb operation failure.
 func (ts TouchScreen) Tap(x int, y int) error {
-	_, err := ts.dev.Shell("input", "tap", strconv.Itoa(x), strconv.Itoa(y))
+	_, err := ts.dev.Shell("su -c input", "tap", strconv.Itoa(x), strconv.Itoa(y))
 	return err
 }
 
@@ -32,7 +32,7 @@ func (ts TouchScreen) Tap(x int, y int) error {
 // to (x2, y2) coordinate with specified delay. It returns error on adb operation
 // failure.
 func (ts TouchScreen) Swipe(x1 int, y1 int, x2 int, y2 int, delay int) error {
-	_, err := ts.dev.Shell("input", "touchscreen", "swipe", strconv.Itoa(x1), strconv.Itoa(y1), strconv.Itoa(x2), strconv.Itoa(y2), strconv.Itoa(delay))
+	_, err := ts.dev.Shell("su -c input", "touchscreen", "swipe", strconv.Itoa(x1), strconv.Itoa(y1), strconv.Itoa(x2), strconv.Itoa(y2), strconv.Itoa(delay))
 	return err
 }
 
@@ -124,7 +124,7 @@ func (ts TouchScreen) SwipeRight(count int) error {
 // adb operation failure. make sure you are using correct device path for
 // touch device, and can be obtailed easily by GetTouchInputDevice method.
 func (ts TouchScreen) RawSendEvent(dev string, eventType int, event int, value int) error {
-	_, err := ts.dev.Shell("sendevent", dev, strconv.Itoa(eventType), strconv.Itoa(event), strconv.Itoa(value))
+	_, err := ts.dev.Shell("su -c sendevent", dev, strconv.Itoa(eventType), strconv.Itoa(event), strconv.Itoa(value))
 	return err
 }
 
@@ -134,7 +134,7 @@ func (ts TouchScreen) RawSendEvent(dev string, eventType int, event int, value i
 func (ts TouchScreen) GetTouchInputDevice() (string, error) {
 	tag1 := "KEY (0001):"
 	tag2 := "ABS (0003):"
-	out, err := ts.dev.Shell("getevent", "-p")
+	out, err := ts.dev.Shell("su -c getevent", "-p")
 	if err != nil {
 		return "", err
 	}
