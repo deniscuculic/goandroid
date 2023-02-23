@@ -30,18 +30,25 @@ func NewActivity(dev device.Device) Activity {
 //
 // TODO Check if activity can not be launched or not found or other command
 // related outputs.
-func (am Activity) StartActivity(canonicalClass string, options ...string) error {
+func (am Activity) StartActivity(root bool, canonicalClass string, options ...string) error {
+	runAsRoot := ""
+	if root == true {
+		runAsRoot = "su -c "
+	}
+
 	if len(options) > 0 {
 		cmd := []string{}
 		cmd = append(cmd, "start")
 		cmd = append(cmd, options...)
 		cmd = append(cmd, canonicalClass)
-		_, err := am.dev.Shell("su -c am", cmd...)
+		t, err := am.dev.Shell(runAsRoot+"am", cmd...)
+		fmt.Println(t, err)
+
 		if err != nil {
 			return err
 		}
 	} else {
-		_, err := am.dev.Shell("su -c am", "start", canonicalClass)
+		_, err := am.dev.Shell(runAsRoot+"am", "start", canonicalClass)
 		if err != nil {
 			return err
 		}
