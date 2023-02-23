@@ -1,8 +1,9 @@
 package input
 
 import (
-	"github.com/deniscuculic/goandroid/device"
 	"strconv"
+
+	"github.com/deniscuculic/goandroid/device"
 )
 
 const (
@@ -38,7 +39,7 @@ func NewKey(dev device.Device) Key {
 // failure.
 func (key Key) Press(code int, count int) error {
 	for i := 0; i < count; i++ {
-		_, err := key.dev.Shell("su -c input", "keyevent", strconv.Itoa(code))
+		_, err := key.dev.Shell("input", "keyevent", strconv.Itoa(code))
 		if err != nil {
 			return err
 		}

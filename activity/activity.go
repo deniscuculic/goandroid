@@ -62,7 +62,7 @@ func (am Activity) StartActivity(root bool, canonicalClass string, options ...st
 // It returens error if something went wrong on adb side or the method is unable to
 // determine the activity canonical package name.
 func (am Activity) GetFocusedActivity() (string, error) {
-	ret, err := am.dev.Shell("su -c dumpsys", "activity", "|", "grep", "mFocusedActivity:")
+	ret, err := am.dev.Shell("dumpsys", "activity", "|", "grep", "mFocusedActivity:")
 	if err != nil {
 		return "", err
 	}

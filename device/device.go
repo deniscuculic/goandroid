@@ -77,7 +77,7 @@ func (dev Device) GetProperty(key string) (string, error) {
 // properties. It also returns error in case of adb operation failure.
 func (dev Device) GetAllProperties() (map[string]string, error) {
 	prop_map := make(map[string]string)
-	prop, err := dev.Shell("su -c getprop")
+	prop, err := dev.Shell("getprop")
 	if err != nil {
 		return prop_map, err
 	}

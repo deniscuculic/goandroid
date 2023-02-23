@@ -6,8 +6,9 @@
 package view
 
 import (
-	"github.com/deniscuculic/goandroid/geometry"
 	"strings"
+
+	"github.com/deniscuculic/goandroid/geometry"
 )
 
 // View struct is an internal representation of android ui component. This is
@@ -86,7 +87,8 @@ func (views Views) GetByMatchingText(text string, index int) (View, bool) {
 // element is zero. If no view is found with exact resource id match, empty
 // view is returned with boolean value false indicating view is not found.
 // NOTE : Here resource id represents following "<resource_id>" part only
-//        <package_name>:id/<resource_id>
+//
+//	<package_name>:id/<resource_id>
 func (views Views) GetByResource(resource string, index int) (View, bool) {
 	idx := 0
 	for _, vw := range views {
@@ -108,7 +110,8 @@ func (views Views) GetByResource(resource string, index int) (View, bool) {
 // returned with boolean value false indicating view is not found. Resource
 // id match is case insensitive.
 // NOTE : Here resource id represents following "<resource_id>" part only
-//        <package_name>:id/<resource_id>
+//
+//	<package_name>:id/<resource_id>
 func (views Views) GetByMatchingResource(resource string, index int) (View, bool) {
 	idx := 0
 	for _, vw := range views {
