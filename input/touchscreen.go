@@ -2,10 +2,11 @@ package input
 
 import (
 	"errors"
-	"github.com/deniscuculic/goandroid/device"
-	"github.com/deniscuculic/goandroid/display"
 	"strconv"
 	"strings"
+
+	"github.com/deniscuculic/goandroid/device"
+	"github.com/deniscuculic/goandroid/display"
 )
 
 // TouchScreen struct represensts touch input susbystem for associated device.

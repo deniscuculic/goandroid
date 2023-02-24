@@ -3,9 +3,10 @@ package display
 import (
 	"errors"
 	"fmt"
-	"github.com/deniscuculic/goandroid/device"
 	"strconv"
 	"strings"
+
+	"github.com/deniscuculic/goandroid/device"
 )
 
 type Display struct {
@@ -25,6 +26,12 @@ func (disp Display) GetDisplaySize() (int, int, error) {
 		return -1, -1, errors.New("Not able to determine display size")
 	}
 	size := strings.Split(strings.TrimSpace(txt), "Physical size:")[1]
+
+	prefix := "Override size: "
+	if strings.Contains(size, prefix) {
+		size = strings.Trim(strings.Split(size, "\n")[1], prefix)
+	}
+
 	width, err := strconv.Atoi(strings.Split(strings.TrimSpace(size), "x")[0])
 	if err != nil {
 		return -1, -1, err
