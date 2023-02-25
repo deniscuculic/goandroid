@@ -91,7 +91,7 @@ func (ts TouchScreen) SwipeLeft(count int) error {
 	y2 := h / 2
 	y1 := y2
 	for i := 0; i < count; i++ {
-		err := ts.Swipe(x1, y1, x2, y2, 1000)
+		err := ts.Swipe(x1, y1, x2, y2, 150)
 		if err != nil {
 			return err
 		}
@@ -112,7 +112,7 @@ func (ts TouchScreen) SwipeRight(count int) error {
 	y2 := h / 2
 	y1 := y2
 	for i := 0; i < count; i++ {
-		err := ts.Swipe(x1, y1, x2, y2, 1000)
+		err := ts.Swipe(x1, y1, x2, y2, 150)
 		if err != nil {
 			return err
 		}
