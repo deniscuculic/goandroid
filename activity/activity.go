@@ -42,6 +42,7 @@ func (am Activity) StartActivity(root bool, canonicalClass string, options ...st
 		cmd = append(cmd, options...)
 		cmd = append(cmd, canonicalClass)
 		t, err := am.dev.Shell(runAsRoot+"am", cmd...)
+		time.Sleep(1 * time.Second)
 		fmt.Println(t, err)
 
 		if err != nil {
@@ -49,6 +50,7 @@ func (am Activity) StartActivity(root bool, canonicalClass string, options ...st
 		}
 	} else {
 		_, err := am.dev.Shell(runAsRoot+"am", "start", canonicalClass)
+		time.Sleep(1 * time.Second)
 		if err != nil {
 			return err
 		}
