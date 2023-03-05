@@ -27,7 +27,7 @@ func NewTouchScreen(dev device.Device) TouchScreen {
 // returns error on adb operation failure.
 func (ts TouchScreen) Tap(x int, y int) error {
 	_, err := ts.dev.Shell("input", "tap", strconv.Itoa(x), strconv.Itoa(y))
-	time.Sleep(300 * time.Millisecond)
+	time.Sleep(500 * time.Millisecond)
 	return err
 }
 
